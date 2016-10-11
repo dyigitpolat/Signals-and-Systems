@@ -1,4 +1,4 @@
-n = 0:127;
+n = -1:128;
 dense = 0:0.0001:127;
 
 x1 = cos( 0.1 * pi * n);
@@ -37,17 +37,77 @@ ylabel('cos( wn + t)');
 figure();
 plot(n,x1, '-', n,x2, 'x', n,x3, 'o');
 xlabel('n');
-ylabel('cos( wn + t)');
+ylabel('x1:(-) and x2:(x) and x3:(o)');
 
 figure();
 plot(n,x4,'-',n,x5,'-');
 xlabel('n');
-ylabel('cos( wn + t)');
+ylabel('x4:(-) and x5:(-)');
 
 figure();
 plot(n,x9, '-', n,x10, '.');
 xlabel('n');
-ylabel('cos( wn + t)');
+ylabel('x9:(-) and x10:(.)');
+
+figure();
+plot(n,x1, '.',n,x1);
+xlabel('n');
+ylabel('x1');
+
+figure();
+plot(n,x2, '.',n,x2);
+xlabel('n');
+ylabel('x2');
+
+figure();
+plot(n,x3, '.',n,x3);
+xlabel('n');
+ylabel('x3');
+
+figure();
+plot(n,x4, '.',n,x4);
+xlabel('n');
+ylabel('x4');
+
+figure();
+plot(n,x5, '.',n,x5);
+xlabel('n');
+ylabel('x5');
+
+figure();
+plot(n,x6, '.',n,x6);
+xlabel('n');
+ylabel('x6');
+
+figure();
+plot(n,x7, '.',n,x7);
+xlabel('n');
+ylabel('x7');
+
+figure();
+plot(n,x8, '.',n,x8);
+xlabel('n');
+ylabel('x8');
+
+figure();
+plot(n,x9, '.',n,x9);
+xlabel('n');
+ylabel('x9');
+
+figure();
+plot(n,x10, '.',n,x10);
+xlabel('n');
+ylabel('x10');
+
+figure();
+plot(n,x11, '.',n,x11);
+xlabel('n');
+ylabel('x11');
+
+figure();
+plot(n,x12, '.',n,x12);
+xlabel('n');
+ylabel('x12');
 
 findPeriod( x1);
 findPeriod( x2);
@@ -62,10 +122,11 @@ findPeriod( x10);
 findPeriod( x11);
 findPeriod( x12);
 
+%this function does not fully work, just for test purposes.
 function [period] = findPeriod( mat )
     period = 0;
-    index = 3:127;
-    periods = find(mat(1,1) == mat(1,index));
+    index = 2:128;
+    periods = find(mat(1,2) == mat(1,index));
     disp(['fundamental period of ' inputname(1) ':'] );
     [x, y] = size(periods);
     if( y > 1)
@@ -74,9 +135,6 @@ function [period] = findPeriod( mat )
         disp('    no periods found within 0-127'); 
         disp(' ');
     end 
-    
-    disp(periods);
-    
 end
 
 function mydisp(b)

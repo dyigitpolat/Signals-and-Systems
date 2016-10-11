@@ -65,7 +65,7 @@ findPeriod( x12);
 function [period] = findPeriod( mat )
     period = 0;
     index = 3:127;
-    periods = find(mat(1,1) == mat(1,index+1));
+    periods = find(mat(1,1) == mat(1,index));
     disp(['fundamental period of ' inputname(1) ':'] );
     [x, y] = size(periods);
     if( y > 1)

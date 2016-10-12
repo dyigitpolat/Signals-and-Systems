@@ -1,4 +1,4 @@
-n = -1:128;
+n = 0:127;
 dense = 0:0.0001:127;
 
 x1 = cos( 0.1 * pi * n);
@@ -40,9 +40,9 @@ xlabel('n');
 ylabel('x1:(-) and x2:(x) and x3:(o)');
 
 figure();
-plot(n,x4,'-',n,x5,'-');
+plot(n,x4,'-',n,x5,'*');
 xlabel('n');
-ylabel('x4:(-) and x5:(-)');
+ylabel('x4:(-) and x5:(*)');
 
 figure();
 plot(n,x9, '-', n,x10, '.');
@@ -125,8 +125,8 @@ findPeriod( x12);
 %this function does not fully work, just for test purposes.
 function [period] = findPeriod( mat )
     period = 0;
-    index = 2:128;
-    periods = find(mat(1,2) == mat(1,index));
+    index = 1:128;
+    periods = find( ( abs(mat(1,1) - (mat(1,index))) < 0.00001));
     disp(['fundamental period of ' inputname(1) ':'] );
     [x, y] = size(periods);
     if( y > 1)
